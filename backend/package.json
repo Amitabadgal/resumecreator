@@ -29,14 +29,18 @@
     "multer": "^1.4.5-lts.1",
     "pdfjs-dist": "^3.11.174",
     "react-pdf": "^9.1.0",
-    "homepage": "https://amitabadgal.github.io/resumecreator",
-    "repository": {
-    "type": "git",
-    "url": "https://github.com/Amitabadgal/resumecreator.git"
-  },
+    "homepage": "https://amitabadgal.github.io/resumecreator"
+   
 
   },
   "devDependencies": {
     "gh-pages": "^6.1.1"
+  },
+   "repository": {
+    "type": "git",
+    "url": "https://github.com/Amitabadgal/resumecreator.git"
+  },
+  "scripts": {
+    "deploy": "gh-pages -d build"
   }
 }
