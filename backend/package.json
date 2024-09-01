@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A resume creator application",
   "main": "index.js",
-  "homepage": "https://amitabadgal.github.io/resumecreator",  // Move the homepage here
+  "homepage": "https://amitabadgal.github.io/resumecreator",
   "repository": {
     "type": "git",
     "url": "https://github.com/Amitabadgal/resumecreator.git"
