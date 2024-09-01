@@ -1,5 +1,5 @@
 {
-  "name": "backend",
+  "name": "resume-creator",
   "version": "1.0.0",
   "description": "A resume creator application",
   "main": "server.js",
@@ -9,7 +9,7 @@
     "url": "https://github.com/Amitabadgal/resumecreator.git"
   },
   "scripts": {
-    "start": "node backend/server.js",
+    "start": "node backend/server.js",  // Ensure this points to your server file correctly
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
