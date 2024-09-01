@@ -2,7 +2,7 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "A resume creator application",
-  "main": "index.js",
+  "main": "server.js",
   "homepage": "https://amitabadgal.github.io/resumecreator",
   "repository": {
     "type": "git",
