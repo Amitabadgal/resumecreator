@@ -14,10 +14,23 @@ connectDB();
 
 // CORS configuration
 const corsOptions = {
-    origin: "http://localhost:3000", // React development server
+    origin: function (origin, callback) {
+      // Allow requests from both the frontend and localhost
+      const allowedOrigins = [
+        "http://localhost:3000", // React development server
+        "https://resumecreator-frontend.onrender.com" // Deployed frontend URL
+      ];
+      
+      // Check if the origin is in the allowed origins
+      if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+        callback(null, true); // Allow the request
+      } else {
+        callback(new Error('Not allowed by CORS')); // Reject the request
+      }
+    },
     methods: "GET, POST, PUT, DELETE, PATCH, HEAD",
     credentials: true,
-};
+  };
 
 // Apply CORS middleware with options
 app.use(cors(corsOptions));
