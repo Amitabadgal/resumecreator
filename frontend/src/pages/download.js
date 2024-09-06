@@ -23,7 +23,7 @@ const Download = ({ resumeData }) => {
     formData.append('pdf', pdfBlob, 'resume.pdf');
 
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/save-resume', formData, {
+      const response = await axios.post('https://resumecreator-u9et.onrender.com/api/auth/save-resume', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

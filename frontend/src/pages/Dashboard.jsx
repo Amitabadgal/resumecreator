@@ -60,7 +60,7 @@ const Dashboard = () => {
     const userId = localStorage.getItem('userId'); // Get userId from localStorage
 
     if (userId) {
-      axios.get(`http://localhost:5000/api/auth/resumes/${userId}`)
+      axios.get(`https://resumecreator-u9et.onrender.com/api/auth/resumes/${userId}`)
         .then(response => {
           setResumeData(response.data); // Store the data in state
           console.log(response.data); // Log the data to inspect it

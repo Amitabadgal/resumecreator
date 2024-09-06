@@ -39,7 +39,7 @@ const ResumeGenerator1 = ({ selectedTemplate, userId }) => {
 
   useEffect(() => {
     if (userId) {
-      axios.get(`http://localhost:5000/api/auth/resumes/${userId}`)
+      axios.get(`https://resumecreator-u9et.onrender.com/api/auth/resumes/${userId}`)
         .then(response => {
           setResumeData(response.data);
         })
@@ -72,7 +72,7 @@ const ResumeGenerator1 = ({ selectedTemplate, userId }) => {
     formData.append('resumeName', 'My Generated Resume');
   
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/save-resume', formData, {
+      const response = await axios.post('https://resumecreator-u9et.onrender.com/api/auth/save-resume', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

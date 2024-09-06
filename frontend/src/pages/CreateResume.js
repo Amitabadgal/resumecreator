@@ -68,7 +68,7 @@ const CreateResume = () => {
     e.preventDefault();
     const userId = localStorage.getItem('userId'); // Ensure you have the userId
 
-    await axios.post('http://localhost:5000/api/auth/resumes', { userId, content: formData }, {
+    await axios.post('https://resumecreator-u9et.onrender.com/api/auth/resumes', { userId, content: formData }, {
       headers: {
         'Content-Type': 'application/json',
       }
