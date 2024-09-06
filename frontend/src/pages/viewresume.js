@@ -39,14 +39,14 @@ const Viewresume = () => {
   const [resumeSrc, setResumeSrc] = useState(''); // State to hold the full src URL
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/auth/save-resume')
+    axios.get('https://resumecreator-u9et.onrender.com/api/auth/save-resume')
       .then(response => setSavedResumes(response.data))
       .catch(() => alert('Failed to load resumes'));
   }, []);
 
   const handleViewResume = (filePath) => {
     const fileName = extractFilename(filePath);
-    const fullSrc = `http://localhost:5000/api/auth/save-resume/${fileName}`;
+    const fullSrc = `https://resumecreator-u9et.onrender.com/api/auth/save-resume/${fileName}`;
     setSelectedResume(fileName);
     setResumeSrc(fullSrc); // Set the full URL as the src
   };
