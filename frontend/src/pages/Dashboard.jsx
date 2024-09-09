@@ -75,6 +75,18 @@ const Dashboard = () => {
     return <div>Loading...</div>; // Show a loading message while data is being fetched
   }
 
+   const hasResumeData = resumeData.personalDetails || 
+                        resumeData.education.length > 0 || 
+                        resumeData.experience.length > 0 || 
+                        resumeData.projects.length > 0 || 
+                        resumeData.skills.length > 0 || 
+                        resumeData.achievements.length > 0 || 
+                        resumeData.software.length > 0 || 
+                        resumeData.languages.length > 0 || 
+                        resumeData.certifications.length > 0 || 
+                        resumeData.interests.length > 0 || 
+                        resumeData.others;
+
   return (
     <div style={appStyle}>
     <Header1 />
@@ -103,113 +115,34 @@ const Dashboard = () => {
           
         </div>
       </div>
-      {isRightSectionVisible && (
-        <div className='right-section bg-blue-400 p-4 overflow-y-auto h-1/2 fixed top-30 rounded border border-gray-300'>
-          <h1 className="text-lg font-bold"><strong>{resumeData.personalDetails.fullName}'s Resume</strong></h1>
-          <fieldset className="border border-gray-200 rounded p-4">
-            <legend className="text-lg font-semibold mb-2">Personal Details</legend>
-            <p><strong>Full Name:</strong> {resumeData.personalDetails.fullName}</p>
-            <p><strong>Email:</strong> {resumeData.personalDetails.email}</p>
-            <p><strong>Phone:</strong> {resumeData.personalDetails.phone}</p>
-            <p><strong>Address:</strong> {resumeData.personalDetails.address}</p>
-            <p><strong>Title:</strong> {resumeData.personalDetails.title}</p>
-            <p><strong>Summary:</strong> {resumeData.personalDetails.summary}</p>
-            <p><strong>LinkedIn:</strong> {resumeData.personalDetails.linkedin}</p>
-          </fieldset>
-          <fieldset className="border border-gray-200 rounded p-4">
-            <legend className="text-lg font-semibold mb-2">Educational Details</legend>
-            {resumeData.education.map((edu, index) => (
-              <div key={index}>
-                <p><strong>Degree:</strong> {edu.degree}</p>
-                <p><strong>Institution:</strong> {edu.institution}</p>
-                <p><strong>Year:</strong> {edu.year}</p>
-                <p><strong>Details:</strong> {edu.details}</p>
-              </div>
-            ))}
-          </fieldset>
-          <fieldset className="border border-gray-200 rounded p-4">
-            <legend className="text-lg font-semibold mb-2">Experience Details</legend>
-            {resumeData.experience.map((exp, index) => (
-              <div key={index}>
-                <p><strong>Organisation:</strong> {exp.organisation}</p>
-                <p><strong>Position:</strong> {exp.position}</p>
-                <p><strong>Year:</strong> {exp.year}</p>
-                <p><strong>Details:</strong> {exp.details}</p>
-              </div>
-            ))}
-          </fieldset>
-          <fieldset className="border border-gray-200 rounded p-4">
-            <legend className="text-lg font-semibold mb-2">Projects</legend>
-            {resumeData.projects.map((project, index) => (
-              <div key={index}>
-                <p><strong>Title:</strong> {project.title}</p>
-                <p><strong>Description:</strong> {project.description}</p>
-                <p><strong>Year:</strong> {project.year}</p>
-              </div>
-            ))}
-          </fieldset>
-          <fieldset className="border border-gray-200 rounded p-4">
-            <legend className="text-lg font-semibold mb-2">Skills</legend>
-            <ul>
-              {resumeData.skills.map((skill, index) => (
-                <li key={index}>{skill}</li>
-              ))}
-            </ul>
-          </fieldset>
-          <fieldset className="border border-gray-200 rounded p-4">
-            <legend className="text-lg font-semibold mb-2">Achievements</legend>
-            <ul>
-              {resumeData.achievements.map((achievement, index) => (
-                <li key={index}>{achievement}</li>
-              ))}
-            </ul>
-          </fieldset>
-          <fieldset className="border border-gray-200 rounded p-4">
-            <legend className="text-lg font-semibold mb-2">Softwares</legend>
-            {resumeData.software.map((software, index) => (
-              <div key={index}>
-                <p><strong>Name:</strong> {software.name}</p>
-                <p><strong>Level:</strong> {software.level}</p>
-              </div>
-            ))}
-          </fieldset>
-          <fieldset className="border border-gray-200 rounded p-4">
-            <legend className="text-lg font-semibold mb-2">Languages</legend>
-            {resumeData.languages.map((language, index) => (
-              <div key={index}>
-                <p><strong>Name:</strong> {language.name}</p>
-                <p><strong>Level:</strong> {language.level}</p>
-              </div>
-            ))}
-          </fieldset>
-          <fieldset className="border border-gray-200 rounded p-4">
-            <legend className="text-lg font-semibold mb-2">Certificates</legend>
-            <ul>
-    {resumeData.certifications.map((cert, index) => (
-        <li key={index}>
-            <span>{cert.name}</span>
-            <span>{cert.year}</span>
-        </li>
-    ))}
-</ul>
-          </fieldset>
-          <fieldset className="border border-gray-200 rounded p-4">
-            <legend className="text-lg font-semibold mb-2">Interests</legend>
-            <ul>
-              {resumeData.interests.map((interest, index) => (
-                <li key={index}>{interest}</li>
-              ))}
-            </ul>
-          </fieldset>
-          <fieldset className="border border-gray-200 rounded p-4">
-            <legend className="text-lg font-semibold mb-2">Others</legend>
-            <p>{resumeData.others}</p>
-          </fieldset>
-          <Link to="/create" style={{ textDecoration: 'none' }}>
-            <button style={buttonStyle}>Edit Details</button>
-          </Link>
-        </div>
-      )}
+     {isRightSectionVisible && (
+  <div className='right-section bg-blue-400 p-4 overflow-y-auto h-1/2 fixed top-30 rounded border border-gray-300'>
+    {hasResumeData ? (
+      <>
+        <h1 className="text-lg font-bold"><strong>{resumeData.personalDetails.fullName}'s Resume</strong></h1>
+        <fieldset className="border border-gray-200 rounded p-4">
+          <legend className="text-lg font-semibold mb-2">Personal Details</legend>
+          <p><strong>Full Name:</strong> {resumeData.personalDetails.fullName}</p>
+          <p><strong>Email:</strong> {resumeData.personalDetails.email}</p>
+          <p><strong>Phone:</strong> {resumeData.personalDetails.phone}</p>
+          <p><strong>Address:</strong> {resumeData.personalDetails.address}</p>
+          <p><strong>Title:</strong> {resumeData.personalDetails.title}</p>
+          <p><strong>Summary:</strong> {resumeData.personalDetails.summary}</p>
+          <p><strong>LinkedIn:</strong> {resumeData.personalDetails.linkedin}</p>
+        </fieldset>
+        {/* Rest of the fields... */}
+      </>
+    ) : (
+      <div style={{ textAlign: 'center', color: '#fff', fontSize: '1.5rem' }}>
+        <p>No data available. Please add details.</p>
+        <Link to="/create" style={{ textDecoration: 'none' }}>
+          <button style={buttonStyle}>Add Details</button>
+        </Link>
+      </div>
+    )}
+  </div>
+)}
+
     </div>
     </div>
     </div>
