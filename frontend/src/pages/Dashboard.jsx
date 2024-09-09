@@ -130,7 +130,96 @@ const Dashboard = () => {
           <p><strong>Summary:</strong> {resumeData.personalDetails.summary}</p>
           <p><strong>LinkedIn:</strong> {resumeData.personalDetails.linkedin}</p>
         </fieldset>
-        {/* Rest of the fields... */}
+       <fieldset className="border border-gray-200 rounded p-4">
+            <legend className="text-lg font-semibold mb-2">Educational Details</legend>
+            {resumeData.education.map((edu, index) => (
+              <div key={index}>
+                <p><strong>Degree:</strong> {edu.degree}</p>
+                <p><strong>Institution:</strong> {edu.institution}</p>
+                <p><strong>Year:</strong> {edu.year}</p>
+                <p><strong>Details:</strong> {edu.details}</p>
+              </div>
+            ))}
+          </fieldset>
+          <fieldset className="border border-gray-200 rounded p-4">
+            <legend className="text-lg font-semibold mb-2">Experience Details</legend>
+            {resumeData.experience.map((exp, index) => (
+              <div key={index}>
+                <p><strong>Organisation:</strong> {exp.organisation}</p>
+                <p><strong>Position:</strong> {exp.position}</p>
+                <p><strong>Year:</strong> {exp.year}</p>
+                <p><strong>Details:</strong> {exp.details}</p>
+              </div>
+            ))}
+          </fieldset>
+          <fieldset className="border border-gray-200 rounded p-4">
+            <legend className="text-lg font-semibold mb-2">Projects</legend>
+            {resumeData.projects.map((project, index) => (
+              <div key={index}>
+                <p><strong>Title:</strong> {project.title}</p>
+                <p><strong>Description:</strong> {project.description}</p>
+                <p><strong>Year:</strong> {project.year}</p>
+              </div>
+            ))}
+          </fieldset>
+          <fieldset className="border border-gray-200 rounded p-4">
+            <legend className="text-lg font-semibold mb-2">Skills</legend>
+            <ul>
+              {resumeData.skills.map((skill, index) => (
+                <li key={index}>{skill}</li>
+              ))}
+            </ul>
+          </fieldset>
+          <fieldset className="border border-gray-200 rounded p-4">
+            <legend className="text-lg font-semibold mb-2">Achievements</legend>
+            <ul>
+              {resumeData.achievements.map((achievement, index) => (
+                <li key={index}>{achievement}</li>
+              ))}
+            </ul>
+          </fieldset>
+          <fieldset className="border border-gray-200 rounded p-4">
+            <legend className="text-lg font-semibold mb-2">Softwares</legend>
+            {resumeData.software.map((software, index) => (
+              <div key={index}>
+                <p><strong>Name:</strong> {software.name}</p>
+                <p><strong>Level:</strong> {software.level}</p>
+              </div>
+            ))}
+          </fieldset>
+          <fieldset className="border border-gray-200 rounded p-4">
+            <legend className="text-lg font-semibold mb-2">Languages</legend>
+            {resumeData.languages.map((language, index) => (
+              <div key={index}>
+                <p><strong>Name:</strong> {language.name}</p>
+                <p><strong>Level:</strong> {language.level}</p>
+              </div>
+            ))}
+          </fieldset>
+          <fieldset className="border border-gray-200 rounded p-4">
+            <legend className="text-lg font-semibold mb-2">Certificates</legend>
+            <ul>
+    {resumeData.certifications.map((cert, index) => (
+        <li key={index}>
+            <span>{cert.name}</span>
+            <span>{cert.year}</span>
+        </li>
+    ))}
+</ul>
+          </fieldset>
+          <fieldset className="border border-gray-200 rounded p-4">
+            <legend className="text-lg font-semibold mb-2">Interests</legend>
+            <ul>
+              {resumeData.interests.map((interest, index) => (
+                <li key={index}>{interest}</li>
+              ))}
+            </ul>
+          </fieldset>
+          <fieldset className="border border-gray-200 rounded p-4">
+            <legend className="text-lg font-semibold mb-2">Others</legend>
+            <p>{resumeData.others}</p>
+          </fieldset>
+ 
       </>
     ) : (
       <div style={{ textAlign: 'center', color: '#fff', fontSize: '1.5rem' }}>
