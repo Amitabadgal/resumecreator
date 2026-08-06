@@ -95,7 +95,19 @@ router.get('/resumes/:userId', async (req, res) => {
     console.log('userId');
 
     if (!resume) {
-      return res.status(404).json({ message: 'Resume not found' });
+     return res.status(200).json({
+    personalDetails: {},
+    education: [],
+    experience: [],
+    projects: [],
+    skills: [],
+    achievements: [],
+    software: [],
+    languages: [],
+    certifications: [],
+    interests: [],
+    others: ""
+  });
     }
 
     res.status(200).json(resume);
