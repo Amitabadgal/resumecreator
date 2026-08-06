@@ -94,7 +94,7 @@ const Dashboard = () => {
     <div style={contentStyle}>
     <div className="dashboard flex-col">
     <h2 style={{ textAlign: 'center', marginTop: '100px', fontSize: '1.5rem', color: '#0e6fa0' }}>
-          Welcome, {resumeData.personalDetails.fullName}!
+          Welcome {resumeData.personalDetails.fullName}!
         </h2>
     
       <div>
